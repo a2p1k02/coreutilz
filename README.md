@@ -8,3 +8,13 @@ git clone https://github.com/a2p1k02/coreutilz/
 cd coreutilz
 zig build.zig
 ```
+
+## TODO
+- [x] ls
+- [x] touch
+- [ ] chmod
+- [ ] chown
+- [ ] cat
+- [ ] mkdir
+- [ ] rm
+- [ ] ...
