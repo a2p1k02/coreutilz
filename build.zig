@@ -16,5 +16,8 @@ pub fn build(b: *std.Build) void {
 
     const exe_touch = set_executable(b, "touch", "src/touch.zig");
     b.installArtifact(exe_touch);
+
+    const exe_mkdir = set_executable(b, "mkdir", "src/mkdir.zig");
+    b.installArtifact(exe_mkdir);
 }
 
