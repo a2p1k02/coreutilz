@@ -19,5 +19,8 @@ pub fn build(b: *std.Build) void {
 
     const exe_mkdir = set_executable(b, "mkdir", "src/mkdir.zig");
     b.installArtifact(exe_mkdir);
+
+    const exe_rm = set_executable(b, "rm", "src/rm.zig");
+    b.installArtifact(exe_rm);
 }
 

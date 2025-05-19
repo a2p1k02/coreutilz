@@ -10,7 +10,10 @@ fn createDirectory(flags: Flags) !void {
     if (flags.recursive_flag) {
         var splits = std.mem.split(u8, flags.path, "/");
         while (splits.next()) |path| {
-            try std.fs.cwd().makeDir(path);
+            std.fs.cwd().makeDir(path) catch |err| switch (err) {
+                error.PathAlreadyExists => {},
+                else => {}
+            };
             var dir = try std.fs.cwd().openDir(path, .{});
             defer dir.close();
             try dir.setAsCwd();
@@ -41,7 +44,11 @@ pub fn main() !void {
             flags.path = arg;
         }
     }    
-
-    try createDirectory(flags);
+    
+    if (flags.path.len != 0) {
+        try createDirectory(flags);
+    } else {
+        try stdout.print("usage: mkdir [-p] [dir(s)]\n", .{});
+    }
 }
 

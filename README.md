@@ -16,5 +16,5 @@ zig build.zig
 - [ ] chown
 - [ ] cat
 - [x] mkdir
-- [ ] rm
+- [x] rm
 - [ ] ...
